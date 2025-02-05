@@ -42,27 +42,27 @@ pip install -r requirements.txt
 Загрузка последнего запуска SpaceX:
 
 ```bash
-python fetch_spacex_last_launch.py
+python spacex_image_launch.py
 ```
 По умолчанию скрипт загружает изображения с последнего запуска. Чтобы указать конкретный идентификатор запуска, используйте аргумент:
 
 ```bash
-python fetch_spacex_last_launch.py <launch_id>
+python spacex_image_launch.py <launch_id>
 ```
 Загрузка ежедневных фотографий NASA:
 
 ```bash
-python fetch_nasa_daily_photo.py
+python nasa_image_daily.py
 ```
 Чтобы указать количество загружаемых фотографий, используйте аргумент:
 
 ```bash
-python fetch_nasa_daily_photo.py <count>
+python nasa_image_daily.py <count>
 ```
 Загрузка эпических изображений Земли:
 
 ```bash
-python fetch_nasa_epic_photo.py
+python nasa_image_epic.py
 ```
 Загрузка изображений в Telegram:
 
@@ -72,9 +72,12 @@ python upload_image.py
 Чтобы указать конкретное изображение для загрузки, используйте аргумент:
 
 ```bash
-python upload_image.py <image_name>
+python telegram_upload_image.py <image_name>
 ```
-Также этот скрипт используется для автоматической загрузки изображений, достаточно лишь запустить его. 
+Для того, чтобы запустить автоматическую загрузку картинок по кругу, используйте аргумент:
+```bash
+python telegram_endless_upload_images.py
+```
 
 ### Цель проекта
 Код написан в образовательных целях на онлайн-курсе для веб-разработчиков dvmn.org.
