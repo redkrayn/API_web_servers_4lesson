@@ -12,9 +12,8 @@ def separate_extension(url):
     return extension[1]
 
 
-def fetch_nasa_daily_photo(path, count):
+def fetch_nasa_daily_photo(path, count, api_key):
     url_nasa_daily = "https://api.nasa.gov/planetary/apod"
-    api_key = os.environ["NASA_API_TOKEN"]
     payload = {"api_key": api_key, "count": count}
     response = requests.get(url_nasa_daily, params=payload)
     response.raise_for_status()
@@ -30,8 +29,8 @@ def main():
     parser = argparse.ArgumentParser(description="Загружает ежедневные фото.")
     parser.add_argument("count", help="количество снимков которое нужно получить", nargs="?", default="1", type=str)
     args = parser.parse_args()
-
-    fetch_nasa_daily_photo(get_folder_image(), args.count)
+    api_key = os.environ["NASA_API_TOKEN"]
+    fetch_nasa_daily_photo(get_folder_image(), args.count, api_key)
 
 
 if __name__ == "__main__":

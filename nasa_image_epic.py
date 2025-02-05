@@ -1,14 +1,12 @@
 import os
 import requests
-import argparse
 from itertools import islice
 from dotenv import load_dotenv
 from image_data_utils import get_folder_image, save_image
 
 
-def fetch_nasa_epic_photo(path):
+def fetch_nasa_epic_photo(path, api_key):
     url_nasa_epic = "https://epic.gsfc.nasa.gov/api/natural"
-    api_key = os.environ["NASA_API_TOKEN"]
     response = requests.get(url_nasa_epic)
     response.raise_for_status()
     for index, _ in islice(enumerate(response.json()),10):
@@ -23,8 +21,8 @@ def fetch_nasa_epic_photo(path):
 
 def main():
     load_dotenv()
-    argparse.ArgumentParser(description="Загружает эпические изображения нашей земли'.")
-    fetch_nasa_epic_photo(get_folder_image())
+    api_key = os.environ["NASA_API_TOKEN"]
+    fetch_nasa_epic_photo(get_folder_image(), api_key)
 
 
 if __name__ == "__main__":

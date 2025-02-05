@@ -3,11 +3,11 @@ import random
 import time
 import telegram
 from dotenv import load_dotenv
-from image_data_utils import get_url_image
+from image_data_utils import get_path_file
 
 
-def stop_time(default=14400):
-    duration_time = os.environ["DURATION_TIME"]
+def stop_time(duration_time, default=14400):
+
     if duration_time == "":
         duration_time = default
         return duration_time
@@ -26,10 +26,11 @@ def upload_endless_image(bot, chat_id, image_files, time_pause):
 
 def main():
     load_dotenv()
+    duration_time = os.environ["DURATION_TIME"]
     chat_id = os.environ["TELEGRAM_CHAT_ID"]
     bot = telegram.Bot(token=os.environ["TELEGRAM_BOT_TOKEN"])
-    image_files = get_url_image()
-    time_pause = stop_time()
+    image_files = get_path_file()
+    time_pause = stop_time(duration_time)
     upload_endless_image(bot, chat_id, image_files, time_pause)
 
 
