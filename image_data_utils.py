@@ -18,7 +18,7 @@ def save_image(url, path, filename, payload=None):
     return image_path_filename
 
 
-def get_url_image():
+def get_path_file():
     image_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.bmp')
     image_files = []
     for _, _, files in os.walk(get_folder_image()):
