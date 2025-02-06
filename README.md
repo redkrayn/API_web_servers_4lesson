@@ -67,7 +67,7 @@ python nasa_image_epic.py
 Загрузка изображений в Telegram:
 
 ```bash
-python upload_image.py
+python telegram_upload_image.py
 ```
 Чтобы указать конкретное изображение для загрузки, используйте аргумент:
 
