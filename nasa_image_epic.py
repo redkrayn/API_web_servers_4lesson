@@ -6,8 +6,8 @@ from image_data_utils import get_folder_image, save_image
 
 
 def fetch_nasa_epic_photo(path, api_key):
-    url_nasa_epic = "https://epic.gsfc.nasa.gov/api/natural"
-    response = requests.get(url_nasa_epic)
+    nasa_epic_url = "https://epic.gsfc.nasa.gov/api/natural"
+    response = requests.get(nasa_epic_url)
     response.raise_for_status()
     for index, _ in islice(enumerate(response.json()),10):
         epic_image = response.json()[index]["image"]

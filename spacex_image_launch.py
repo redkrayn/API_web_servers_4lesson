@@ -4,8 +4,8 @@ from image_data_utils import get_folder_image, save_image
 
 
 def fetch_spacex_last_launch(launch_id, path):
-    url_spacex = f"https://api.spacexdata.com/v5/launches/{launch_id}"
-    response = requests.get(url_spacex)
+    spacex_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
+    response = requests.get(spacex_url)
     response.raise_for_status()
     images_launch = response.json().get("links").get("flickr").get("original")
     for index, image in enumerate(images_launch):

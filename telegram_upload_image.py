@@ -3,14 +3,14 @@ import random
 import telegram
 import argparse
 from dotenv import load_dotenv
-from image_data_utils import get_paths_file
+from image_data_utils import get_file_paths
 
 
 def main():
     load_dotenv()
     chat_id = os.environ["TELEGRAM_CHAT_ID"]
     bot = telegram.Bot(token=os.environ["TELEGRAM_BOT_TOKEN"])
-    random_image = random.choice(get_paths_file())
+    random_image = random.choice(get_file_paths())
     parser = argparse.ArgumentParser(description="Загружает указанную картинку в телеграмм, либо рандомную")
     parser.add_argument("name_image", help="название картинки", nargs="?", default=random_image, type=str)
     args = parser.parse_args()

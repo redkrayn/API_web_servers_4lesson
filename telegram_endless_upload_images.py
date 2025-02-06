@@ -3,7 +3,7 @@ import random
 import time
 import telegram
 from dotenv import load_dotenv
-from image_data_utils import get_paths_file
+from image_data_utils import get_file_paths
 
 
 def stop_time(duration_time, default=14400):
@@ -29,7 +29,7 @@ def main():
     duration_time = os.environ["DURATION_TIME"]
     chat_id = os.environ["TELEGRAM_CHAT_ID"]
     bot = telegram.Bot(token=os.environ["TELEGRAM_BOT_TOKEN"])
-    image_files = get_paths_file()
+    image_files = get_file_paths()
     time_pause = stop_time(duration_time)
     upload_endless_image(bot, chat_id, image_files, time_pause)
 

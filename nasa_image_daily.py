@@ -13,9 +13,9 @@ def separate_extension(url):
 
 
 def fetch_nasa_daily_photo(path, count, api_key):
-    url_nasa_daily = "https://api.nasa.gov/planetary/apod"
+    nasa_daily_url = "https://api.nasa.gov/planetary/apod"
     payload = {"api_key": api_key, "count": count}
-    response = requests.get(url_nasa_daily, params=payload)
+    response = requests.get(nasa_daily_url, params=payload)
     response.raise_for_status()
     for index, images in enumerate(response.json()):
         image_url = images["url"]
